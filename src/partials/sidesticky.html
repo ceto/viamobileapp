@@ -1,0 +1,20 @@
+<aside class="sidesticky">
+    <a class="sidesticky__action" href="<?php the_permalink(get_field('contactform', 'option')); ?>">
+        <?= svginsert('sendmessage'); ?>
+    </a>
+    <?php if ($surl=get_field('facebook', 'option')) :?>
+    <a target="_blank" href="<?= $surl; ?>" class="sidesticky__action">
+        <?= svginsert('facebook'); ?>
+    </a>
+    <?php endif; ?>
+    <?php if ($surl=get_field('instagram', 'option')) :?>
+    <a target="_blank" href="<?= $surl; ?>" class="sidesticky__action">
+        <?= svginsert('instagram'); ?>
+    </a>
+    <?php endif; ?>
+    <?php if ($surl=get_field('linkedin', 'option')) :?>
+    <a target="_blank" href="<?= $surl; ?>" class="sidesticky__action">
+        <?= svginsert('linkedin'); ?>
+    </a>
+    <?php endif; ?>
+</aside>

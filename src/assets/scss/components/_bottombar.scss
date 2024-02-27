@@ -1,0 +1,79 @@
+.bottombar {
+
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    z-index: 2;
+    height: $bottombarheight;;
+    background: rgba($cl-primary,.97);
+    box-shadow: 0 0 .25rem 0 rgba(#000,.5);
+    color:$cl-gray-xlight;
+    @include breakpoint($bp-tablet) {
+        display: none;
+    }
+}
+
+.headroom.bottombar {
+    will-change: transform;
+    transition: transform .2s linear .4s;
+    transform: translateY(0);
+
+    &--not-top {
+    }
+
+    &--pinned {
+    }
+
+    &--unpinned {
+        transform: translateY($bottombarheight);
+    }
+
+    &--top {
+    }
+
+
+}
+
+.bottombar__action {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding:.25em;
+    width:100%;
+    font-size: .666rem;
+    line-height: 1;
+    font-weight: $fw-bold;
+
+    &:not(:last-child()):not(:first-child) {
+        border-right:1px solid rgba(#fff,.125);
+        border-left:1px solid rgba(#fff,.125);
+    }
+
+
+    &:hover, &:focus {
+        color:inherit;
+    }
+    svg {
+        height: 1.666em;
+        width:100%;
+        max-width: #{$globalsidebarwidth-small/1.25};
+        display: block;
+        margin: 0 auto .25em;
+        fill:$cl-gray-xlight;
+        max-width: 1.875em;
+
+    }
+
+    span {
+        max-width: 100%;
+        display: block;
+    }
+}

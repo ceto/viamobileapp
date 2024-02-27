@@ -1,0 +1,50 @@
+.widget {
+    font-size: 1rem;
+    & + & {
+        margin-top:1.5rem;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+
+
+}
+
+.widget__title {
+    text-transform: uppercase;
+    line-height: 1.2;
+    font-size: 1.125em;
+    margin: 0 0 0.333em;
+    + * {
+        margin-top: 0;
+    }
+
+    @include breakpoint($bp-tablet) {
+        font-size: 1.333em;
+    }
+}
+
+.widget__body {
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+.widget--footer {
+    font-size: .75rem;
+    @include breakpoint($bp-tablet) {
+        font-size: .9375rem;
+    }
+}
+
+
+.widget--footer {
+    ul {
+        @include niceul;
+        margin-top:0;
+        margin-bottom:0;
+    }
+}

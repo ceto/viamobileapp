@@ -1,0 +1,10 @@
+<aside class="bottombar">
+    <a class="bottombar__action" href="{{#unlesspage 'index'}}{{root}}{{lang}}/{{/unlesspage}}#ajanlatkeres">
+        {{svginsert "sendmessage" }}
+        <span><?= __('Ajánlatkérés','viarent'); ?></span>
+    </a>
+    <a class="bottombar__action" href="tel:<?= preg_replace("/[^\+0-9]/", "", get_field('phone', 'option')); ?>">
+        <?= svginsert('call'); ?>
+        <span><?php the_field('phone', 'option') ?></span>
+    </a>
+</aside>

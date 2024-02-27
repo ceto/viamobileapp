@@ -1,0 +1,202 @@
+$hcmaxwidth:70em;
+.hero {
+    position: relative;
+    z-index: 0;
+    color:#fff;
+    background-color: #000;
+    overflow: hidden;
+
+    @include breakpoint($bp-tablet) {
+        min-height: calc(80vw - #{$globalsidebarwidth});
+    }
+
+    @include breakpoint($bp-large) {
+        min-height: calc(65vw - #{$globalsidebarwidth});
+    }
+    @include breakpoint($bp-xlarge) {
+        min-height: calc(56.25vw - #{$globalsidebarwidth});
+    }
+
+
+    &.fullheight {
+        @include breakpoint($bp-xlarge) {
+            min-height: calc(100vh - #{$globalheaderheight});
+            max-height: 100vw;
+        }
+    }
+
+    &.dark {
+        color:#000;
+    }
+    
+    &.colored {
+        background-color: $c-blue;
+    }
+
+}
+.hero__fig  {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 66vw;
+    mask-image: linear-gradient(0deg, rgba(#000,0) 0, rgba(#000,.5) 33.333%, rgba(#000,1) 66.666%);
+    background-size: 100% 100%;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    z-index: -1;
+    margin:0;
+    padding:0;
+
+    @include breakpoint($bp-tablet) {
+        height:100%;
+        mask-image: linear-gradient(45deg, rgba(#000,0) 0, rgba(#000,.75) 50%, rgba(#000,1) 66.666%);
+        background-size: initial;
+        background-position:  initial;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        max-width: none;
+    }
+
+    &.floating {
+        img {
+            position: absolute;
+            object-position: left bottom;
+            width:50%;
+            right:0;
+        }
+    }
+
+    &.floatingwider {
+        img {
+            position: absolute;
+            object-position: left bottom;
+            width:75%;
+            right:0;
+        }
+    }
+    
+    &.nomask {
+        mask-image: none;
+        // height:50%;
+        @include breakpoint($bp-tablet) {
+            mask-image: none;
+        }
+    }
+}
+
+.hero__content {
+    @extend .pagewrap;
+    max-width: $hcmaxwidth;
+    margin-left: 0;
+    text-shadow: 0 0 1.5rem rgba(#000,.666);
+    padding-top:25%;
+    font-size:.875rem;
+
+    @include breakpoint($bp-tablet) {
+        position: absolute;
+        left:0;
+        bottom:25%;
+        transform: translateY(25%);
+        padding-top:5%;
+        padding-bottom:5%;
+        width:85%
+
+    }
+
+    @include breakpoint($bp-large) {
+        bottom:50%;
+        transform: translateY(50%);
+
+        font-size:.9375rem;
+    }
+    @include breakpoint($bp-xlarge) {
+        font-size:1rem;
+        // transform: translateY(-12.5%);
+        // width:75%
+
+    }
+    @include breakpoint($bp-xxlarge) {
+        font-size:1rem;
+
+    }
+
+    // @include breakpoint(95em) {
+    //     padding-left: 7.5%;
+    //     padding-right: 7.5%;
+    // }
+}
+
+.hero__content {
+    h1, h2, h3 {
+        font-size: 2.5em;
+        font-weight: $fw-black;
+
+        text-transform: uppercase;
+        span {
+            color: $cl-secondary;
+            text-shadow: 0 0 .25rem rgba(#000,.5);
+        }
+    }
+
+    h4,h5,h6 {
+        font-size: 1.5em;
+        font-weight: $fw-normal;
+    }
+
+    p   {
+        font-size:1.125em;
+        font-weight: $fw-semibold;
+        max-width: 29em;
+        &:last-child() {
+            margin-bottom: 0;
+        }
+    }
+
+    ul {
+        @include niceul;
+        max-width: 29em;
+        font-size:1.125em;
+        font-weight: $fw-semibold;
+        &:last-child() {
+            margin-bottom: 0;
+        }
+    }
+    .button {
+        margin:1.5rem 0 0 0;
+        font-size: .875em;
+    }
+
+    .rentavan {
+        margin-bottom: 2rem;
+        color: lighten($cl-primary,40%);
+        text-shadow: 0 0 1.5rem rgba(#000,.5);
+    }
+
+}
+
+
+
+
+
+
+
+.heroslider {
+    overflow: hidden;
+    background-color: $cl-gray-xdark;
+
+    .slick-dots {
+        @extend .pagewrap;
+        position: absolute;
+        padding-top:0;
+        padding-bottom:0;
+        text-align: right;
+        bottom:5%;
+
+    }
+}

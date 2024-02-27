@@ -1,0 +1,162 @@
+<?php global $theaudiencesources; ?>
+<form id="reqform" class="viaform reqform" method="post" action="../rentavan/incominglead.php" data-abide novalidate>
+    <div class="formstep">    
+        <ul class="inputgrid wider">
+            <li>
+                <h3 class="formstep__title">Osobné údaje</h3>
+                <ul class="inputgrid">
+                    <li class="full">
+                        <label>
+                            <input type="text" placeholder="Meno*" required name="r_name">
+                            <span class="fauxplaceholder">Meno*</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="email" placeholder="E-mail adresa*" pattern="email" required name="r_email">
+                            <span class="fauxplaceholder">E-mail adresa*</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="text" placeholder="Telefónne číslo*" required name="r_tel">
+                            <span class="fauxplaceholder">Telefónne číslo*</span>
+                        </label>
+                    </li>
+                </ul>
+                <ul class="inputgrid">
+                    <li class="third">
+                        <label>
+                            <input type="text" placeholder="PSČ*" required name="r_zip">
+                            <span class="fauxplaceholder">PSČ*</span>
+                        </label>
+                    </li>
+                    <li class="third">
+                        <label>
+                            <input type="text" placeholder="Obec*" required name="r_city">
+                            <span class="fauxplaceholder">Obec*</span>
+                        </label>
+                    </li>
+                    <li class="third">
+                        <label>
+                            <input type="text" placeholder="Ulica, číslo domu..." name="r_address">
+                            <span class="fauxplaceholder">Ulica, číslo domu...</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="formstep__title">Iná správa</h3>
+                <ul class="inputgrid">
+                    <li>
+                        <label>
+                            <textarea rows="5" placeholder="Iná správa" name="r_message"></textarea>
+                            <span class="fauxplaceholder">Iná správa</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="formstep">
+        <h3 class="formstep__title">Vyber si vozidlo, ktoré si chceš prenajať*</h3>
+        <?php $titer=0; ?>
+        <ul class="checkergrid">
+        <?php while ($the_tariffs_1->have_posts()) : $the_tariffs_1->the_post();?>
+        <?php setup_postdata( $post ); ?>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle<?= $titer; ?>">
+                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" value="<?php the_title(); ?>">
+                    <?php the_title(); ?>
+                </label>
+            </li>
+            <?php $titer++; ?>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+        <?php while ($the_tariffs_2->have_posts()) : $the_tariffs_2->the_post();?>
+        <?php setup_postdata( $post ); ?>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle<?= $titer; ?>">
+                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" value="<?php the_title(); ?>">
+                    <?php the_title(); ?>
+                </label>
+            </li>
+            <?php $titer++; ?>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+        </ul>
+    </div>
+
+    <div class="formstep">
+        <h3 class="formstep__title">Na ako dlho si chcete prenajať vozidlo?*</h3>
+        <ul class="checkergrid">
+            <li>
+                <label class="checkboxlabel" for="r_time1">
+                    <input id="r_time1" type="checkbox" name="r_time[]" value="1-3 dni">
+                    1-3 dni
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_time2">
+                    <input id="r_time2" type="checkbox" name="r_time[]" value="4-10 dní">
+                    4-10 dní
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_time3">
+                    <input id="r_time3" type="checkbox" name="r_time[]" value="11-30 dní">
+                    11-30 dní
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_time4">
+                    <input id="r_time4" type="checkbox" name="r_time[]" value="1-3 mesiace">
+                    1-3 mesiace
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_time5">
+                    <input id="r_time5" type="checkbox" name="r_time[]" value="4-6 mesiacov">
+                    4-6 mesiacov
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_time6">
+                    <input id="r_time6" type="checkbox" name="r_time[]" value="7-12 mesiacov">
+                    7-12 mesiacov
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="formstep">
+        <h3 class="formstep__title">Odkiaľ si sa o nás dozvedel?</h3>
+        <ul class="checkergrid">
+            <?php foreach( $theaudiencesources as $key => $topic ) : ?>
+                <li>
+                    <label class="checkboxlabel" for="r-audiencescore-<?= $key; ?>">
+                        <input id="r-audiencescore-<?= $key; ?>" type="radio" name="r_audiencesource" value="<?= __($topic,'viarent'); ?>" >
+                        <?= __($topic,'viarent'); ?>
+                    </label>
+                </li>
+            <?php endforeach; ?>
+            <li></li>
+        </ul>
+    </div>
+    <div class="formstep">
+                <label class="checkboxlabel small" for="r_acceptgdpr">
+                    <input id="r_acceptgdpr" type="checkbox" name="r_acceptgdpr" required>
+                    Vyplnením formulára prijímam obsah <a href="https://skdev.viarent.hu/zasady-ochrany-osobnych-udajov/" target="_blank"> informácií o správe údajov.</a>
+                </label>
+                <label class="checkboxlabel small" for="r_acceptmarketing">
+                    <input id="r_acceptmarketing" type="checkbox" name="r_acceptmarketing">
+                    Súhlasím s ponukami na obchodné a marketingové účely
+                </label>
+    </div>
+    <input type="hidden" name="r_human" value="2">
+    <div class="formactions">
+        <button id="reqformsubmit" class="button secondary large reqformsubmit" type="submit" data-progresstext="Send in progress" data-sendtext="Message sent">
+            Odoslať žiadosť o cenovú ponuku
+        </button>
+    </div>
+    <div id="reqformresult" class="formresults reqformresult"></div>
+  </form>

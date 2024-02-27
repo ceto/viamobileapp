@@ -1,0 +1,241 @@
+:root {
+    --owncolor: #{$cl-body-font-color};
+}
+
+.storycard--0 { --owncolor: #{$cl-body-font-color}; }
+.storycard--1 { --owncolor: #{$c-red}; }
+.storycard--2 { --owncolor: #{$c-green}; }
+.storycard--3 { --owncolor: #{$c-blue}; }
+.storycard--4 { --owncolor: #{$c-orange}; }
+.storycard--5 { --owncolor: #{$c-brown}; }
+.storycard--6 { --owncolor: #{$c-bronze}; }
+
+
+.storycard {
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $cl-gray-light;
+    border-color: var(--owncolor);
+    background-color: $cl-body-background;
+    color:$body-font-color;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding:5% 5% 5%;
+    border-radius: 1em;
+    min-height: 12em;
+    margin:0 auto;
+    box-shadow: 0 .5rem 1rem -.5rem rgba(#000,.5);
+
+    font-size: .875rem;
+    margin-top: 10em;
+
+    @include breakpoint($bp-tablet) {
+        font-size: 1rem;
+        margin-top:0;
+        margin-left:calc(50% + 5em);
+    }
+
+    &.even {
+        @include breakpoint($bp-tablet) {
+            margin-right: calc(50% + 5em);
+            margin-left: 0%;
+        }
+    }
+
+}
+
+.storypin {
+    position: absolute;
+    left: calc(50% - 3.5em);
+    top: -8em;
+    width: 7em;
+    height: 7em;
+    background-color: $cl-gray-xlight;
+    padding:1em;
+    border-radius: 50%;
+    border-color: $cl-gray-dark;
+    border-color: var(--owncolor);
+    border-style: solid;
+    border-width: .25em;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    @include breakpoint($bp-tablet) {
+        top: calc(50% - 3.5em);
+        left: auto;
+        right: -8.5em;
+
+        .odd & {
+            right: auto;
+            left: -8.5em;
+        }
+    }
+}
+
+.storycard__content {
+    margin-right:7.5%;
+    h3{
+        color: var(--owncolor);
+        line-height: 1.2;
+        font-size: 1.333em;
+        margin: 0 0 .125em 0;
+        text-transform: uppercase;
+        &:before {
+            content: counter(storycounter) ". ";
+        }
+
+    }
+
+    p {
+        clear: both;
+        font-size: 0.9375rem;
+        line-height: 1.4;
+        margin:0;
+    }
+
+    @include breakpoint($bp-tablet) {
+        // margin-right: 0;
+        // margin-left:2.5%;
+        .even & {
+            margin-right: 0%;
+            margin-left: 7.55%;
+        }
+    }
+}
+
+
+
+.storycard__ill {
+    position: absolute;
+    right:-3em;
+    margin:0;
+    padding: 0;
+    width:6em;
+    height:6em;
+    background-color: #fff;
+
+    border-radius: 50%;
+    border-color: $cl-gray-dark;
+    border-color: var(--owncolor);
+    border-style: solid;
+    border-width: .5px;
+    // order:2;
+    // transform: translateX(150%) scale(2);
+
+    overflow: hidden;
+    text-align: center;
+
+
+    .even & {
+
+        @include breakpoint($bp-tablet) {
+            right:auto;
+            left:-3em;
+            // transform: translateX(-150%) scale(2);
+            // order:-1;
+        }
+    }
+
+    img {
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translateX(-50%) translateY(-50%);
+        width:70%;
+        height:70%;
+        object-fit: contain;
+
+        // border-radius: 50%;
+        // display: block;
+        // border:1em solid $cl-gray-dark;
+    }
+
+}
+
+
+.storycard__giccs {
+    display:none;
+    position: absolute;
+    padding:0;
+    margin:0;
+    padding: 0;
+    width:100%;
+    height:100%;
+    right: calc( 100% + 10em);
+
+
+    @include breakpoint($bp-tablet) {
+        display: block;
+    }
+
+
+    .even & {
+
+        @include breakpoint($bp-tablet) {
+            left: calc( 100% + 10em);
+            right:auto;
+        }
+    }
+
+    img {
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translateX(-50%) translateY(-50%);
+        width:100%;
+        height:100%;
+        object-fit: contain;
+
+        // border-radius: 50%;
+        // display: block;
+        // border:1em solid $cl-gray-dark;
+    }
+
+}
+
+.storycardgrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem-calc($layout-gutter-width);
+    position: relative;
+    list-style: none;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    counter-reset: storycounter;
+    
+    &:before {
+        content:'';
+        position: absolute;
+        display: block;
+        left:calc(50% - .75rem);
+        top:5em;
+        bottom:5em;
+        width:1.5rem;
+        background-color: $cl-primary;
+        background-image: linear-gradient(180deg, rgba($body-font-color,1) 0, rgba($body-font-color,0) 50% );
+    }
+    @include breakpoint($bp-tablet) {
+        // padding-left: 0;
+        &::before {
+            left:calc(50% - 1.5rem);
+            width:3rem;
+        }
+    }
+
+    > li {
+        counter-increment: storycounter;
+        display: block;
+        margin:0;
+        padding: 0;
+        
+        @include breakpoint($bp-tablet) {
+            
+            // width: calc(50% - #{rem-calc($layout-gutter-width*4)}) ;                   
+        }
+    }
+}

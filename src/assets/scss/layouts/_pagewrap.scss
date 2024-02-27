@@ -1,0 +1,235 @@
+
+.pagewrap {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    margin:0 auto;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    width: 100%;
+
+
+    @include breakpoint($bp-medium) {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    @include breakpoint($bp-xlarge) {
+        padding-left: 7.5%;
+        padding-right: 7.5%;
+    }
+
+
+    @include breakpoint(95em) {
+        padding-left: calc(50% - #{$global-width/2});
+        padding-right: calc(50% - #{$global-width/2});
+
+    }
+
+    & & {
+
+        margin-left:-3.03191489362%;
+        margin-right:-3.03191489362%;
+        width:106.0638297872%;
+        @include breakpoint($bp-medium) {
+            margin-left: -5.5556%;
+            margin-right: -5.5556%;
+            width:111.111%;
+        }
+        @include breakpoint($bp-tablet) {
+
+        }
+
+        @include breakpoint($bp-xlarge) {
+            margin-left:auto;
+            margin-right: auto;
+            width:100%;
+        }
+        @include breakpoint(95em) {
+            padding-left: 7.5%;
+            padding-right: 7.5%;
+
+        }
+    }
+
+    &.notop {
+        padding-top: 0;
+    }
+    &.nobottom {
+        padding-bottom: 0;
+    }
+
+    &.nohpad {
+        padding-left: 0;
+        padding-right: 0;
+        @include breakpoint(95em) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &.novpad {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    &.short {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    &.accent {
+        background-color: $cl-primary;
+        color: $cl-white;
+    }
+    &.tertiary {
+        background-color: $cl-tertiary;
+        color: $cl-white;
+    }
+
+    &.bodybg {
+        background-color: $cl-body-background;
+        color: $cl-body-font-color;
+    }
+
+    &.dark {
+        background-color: $cl-gray-dark;
+        color: $cl-white;
+    }
+    &.xdark {
+        background-color: $cl-gray-xdark;
+        color: $cl-white;
+    }
+    &.black {
+        background-color: $cl-black;
+        color: $cl-white;
+    }
+    &.xlight {
+        background-color: $cl-gray-xlight;
+    }
+    &.xlighttowhite {
+        background-color: #fff;
+        background-image: linear-gradient(180deg, $cl-gray-xlight 0, #fff 100%);
+
+    }
+    &.light {
+        background-color: $cl-gray-light;
+    }
+    &.primaryvar {
+        background-color: $cl-primary-var;
+        color: $cl-black;
+    }
+    &.white {
+        background-color: $white;
+    }
+}
+
+.pagewrap.withhalfbg {
+    padding-bottom: 33%;
+    @include breakpoint($bp-large) {
+        padding-bottom: 4rem;
+        // padding-right: 7.5%;
+    }
+}
+.pagewrap.withbg {
+    padding-bottom: 33%;
+    @include breakpoint($bp-large) {
+        padding-bottom: 4rem;
+        // padding-right: 7.5%;
+    }
+}
+.pagewrapimage {
+    position: relative;
+    height: 40vw;
+    max-height: 30rem;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    img {
+        position: absolute;
+        height:100%;
+        max-width: none;
+        left:50%;
+        right:50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+.pagewrap__bg {
+    background-color: inherit;
+    mask-image: linear-gradient(180deg, rgba(#000,0) 0, rgba(#000,1) 50%);
+    background-image: linear-gradient(180deg, transparent 0, #757575 50%, #757575 100%);
+    position: absolute;
+    z-index: -1;
+    left:0;
+    right:0;
+    bottom:0;
+
+    .fulloverlay & {
+        // mask-image: linear-gradient(90deg, rgba(#000,.25) 0, rgba(#000,.25) 66.666%);
+        // background-image: linear-gradient(90deg, #757575 0, #757575 50%, #757575 100%);
+        // height: 50%;
+    }
+
+    @include breakpoint($bp-large) {
+        height: 100%;
+        width: 66.666%;
+        left:auto;
+        mask-image: linear-gradient(90deg, rgba(#000,0) 0, rgba(#000,1) 50%);
+        background-image: linear-gradient(90deg, transparent 0, #757575 50%, #757575 100%);
+        .withbg & {
+            width:100%;
+            mask-image: linear-gradient(90deg, rgba(#000,0) 0, rgba(#000,1) 66.666%);
+            background-image: linear-gradient(90deg, transparent 0, #757575 66.666%, #757575 100%);
+        }
+        .fulloverlay & {
+            mask-image: linear-gradient(90deg, rgba(#000,.25) 0, rgba(#000,.25) 66.666%);
+            background-image: linear-gradient(90deg, #757575 0, #757575 50%, #757575 100%);
+            // background-color: rgba(#000,.1);
+        }
+    }
+
+
+
+    > img {
+        mix-blend-mode: overlay;
+        object-fit: cover;
+        width:100%;
+        height: 100%;
+        // filter: grayscale(1);
+        // opacity: .2;
+        // object-position: bottom;
+
+    }
+
+
+}
+
+.narrowwrap {
+    max-width:  #{$global-width*0.7};
+    margin-left:auto;
+    margin-right:auto;
+    &.left {
+        margin-left: 0;;
+    }
+    &.right {
+        margin-right: 0;
+    }
+}
+
+.xnarrowwrap {
+    max-width:  #{$global-width*0.5};
+    margin-left:auto;
+    margin-right:auto;
+    &.left {
+        margin-left: 0;
+    }
+}
+
+
+
+.box {
+    background-color: #fff;
+    color: $cl-body-font-color;
+    padding:2rem;
+}

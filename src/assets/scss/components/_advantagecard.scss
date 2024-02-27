@@ -1,0 +1,45 @@
+.advantagecard {
+
+    figure {
+        position: relative;
+        margin:0 0 .5rem;
+
+
+        svg {
+            height: 3.25rem;
+            width: 33.333%;
+            max-width: 4.666rem;
+            fill: $cl-primary;
+
+        }
+
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin: 0 0 0.5rem 0;
+    }
+
+    p {
+        clear: both;
+        font-size: 0.9375rem;
+    }
+}
+.advantagelist {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    grid-gap: $layout-gutter-width;
+
+    @include breakpoint($bp-large) {
+         grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    }
+
+    > li {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+}

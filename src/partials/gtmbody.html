@@ -1,0 +1,3 @@
+<?php if ( !current_user_can( 'manage_options' ) ) : ?>
+    <?php the_field('bodycode', 'option') ?>
+<?php endif; ?>

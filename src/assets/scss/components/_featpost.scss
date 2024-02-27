@@ -1,0 +1,189 @@
+.featpost {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    // background-color: $cl-body-background;
+    // color:$cl-body-font-color;
+    &.nowrapper {
+        flex-direction: column-reverse;
+        @include breakpoint($bp-tablet) {
+            flex-direction: row;
+        }
+    }
+}
+
+.featpost__fig,
+.featpost__tail {
+    @include grid-width(12);
+}
+
+.featpost__fig {
+    margin:0;
+    padding:0;
+    @include breakpoint($bp-tablet) {
+        @include grid-width(4,$gutter-count: 4);
+    }
+    @include breakpoint($bp-xlarge) {
+        @include grid-width(6,$gutter-count: 6);
+        // max-height: 35rem;
+    }
+}
+
+.featpost__fig img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    // object-position: center left;
+}
+
+.featpost__tail {
+    padding:rem-calc($layout-gutter-width) 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    @include breakpoint($bp-tablet) {
+        @include grid-width(8,$gutter-count: 7);
+        padding: 0 0 4rem rem-calc($layout-gutter-width);
+        padding-bottom:4rem;
+
+    }
+    @include breakpoint($bp-xlarge) {
+        @include grid-width(6,$gutter-count: 5);
+        // max-width: 42.5%;
+
+    }
+
+    .nowrapper &{
+        padding:rem-calc($layout-gutter-width*2) 3%;
+        @include breakpoint($bp-medium) {
+            padding:rem-calc($layout-gutter-width*2) 5%;
+        }
+        @include breakpoint($bp-tablet) {
+            padding-bottom:4rem;
+        }
+
+        @include breakpoint($bp-xlarge) {
+            padding: rem-calc($layout-gutter-width*2);
+            max-width: calc( #{rem-calc($global-width/2)});
+        }
+    }
+
+}
+
+.featpost__updated {
+    display: inline-block;
+    //font-weight: $fw-bold;
+    font-style: italic;
+    // color: $cl-gray;
+    // text-transform: uppercase;
+    font-size: 0.875rem;
+    margin: 0 0;
+    line-height: 1;
+}
+
+.featpost__title {
+    font-size: 2rem;
+    margin: 0 0 0.125em;
+    line-height: 1.2;
+    max-width: 15em;
+    // min-height: 2em;
+    text-transform: uppercase;
+
+    @include breakpoint($bp-large) {
+        font-size: 2.5rem;
+    }
+
+    .nowrapper & {
+        @include breakpoint($bp-xxlarge) {
+            font-size: 2.75rem;
+        }
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            //text-decoration: underline;
+            //background-color: $cl-primary;
+            color: $cl-primary;
+        }
+    }
+}
+
+.featpost__metablock {
+    margin-bottom: 1rem;
+
+    .catlist {
+        font-size: .75rem;
+
+        > li {
+            a {
+                // background-color: $cl-primary;
+            }
+        }
+    }
+}
+
+.featpost__excerpt {
+    @extend .accentcopy;
+    // font-size: 1rem;
+    // //font-style: italic;
+    // @include breakpoint($bp-large) {
+    //     font-size: 1.125rem;
+    // }
+
+    strong {
+        font-weight: inherit;
+    }
+    em, i {
+        font-style: inherit;
+    }
+    // a:not(.button) {
+    //     text-decoration: underline;
+    //     text-decoration-color: $cl-primary;
+    // }
+    p {
+        margin:0;
+    }
+
+    .readmore {
+
+        display: block;
+        margin-top: 1.5em;
+        display: none;
+    }
+}
+
+.featpost__readmore {
+    font-size: 0.875em;
+    margin: 0;
+
+
+}
+
+.featpost__tail__bottom {
+    line-height: 1;
+    @include breakpoint($bp-tablet) {
+        position: absolute;
+        bottom:0;
+    }
+}
+
+.featpostlist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+        display: block;
+        margin: 0;
+        padding: 0;
+        margin-bottom: $layout-gutter-width;
+        padding-bottom: $layout-gutter-width;
+        border-bottom: 1px dotted $cl-gray-xlight;
+    }
+}

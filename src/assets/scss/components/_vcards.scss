@@ -1,0 +1,290 @@
+.vcardlist {
+    list-style: none;
+    margin: 0 0;
+    padding:0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-column-gap: rem-calc($layout-gutter-width / 2 );
+    grid-row-gap: rem-calc($layout-gutter-width / 2);
+    // grid-auto-rows: 1fr;
+
+
+    @include breakpoint($bp-large) {
+        grid-template-columns: 100%;
+        grid-row-gap: rem-calc($layout-gutter-width);
+    }
+
+
+    > li {
+        // margin: 0 auto;
+    }
+}
+
+.vcardcarousel {
+    background-color: #fff;
+}
+
+.vcard {
+    background-color: #fff;
+    color: $cl-body-font-color;
+    position: relative;
+
+
+    @include breakpoint(large) {
+        // max-width: none;
+    }
+}
+.vcard__peak {
+
+    height:14rem;
+    padding: 1rem 1rem 0 1rem;
+
+    @include breakpoint(large) {
+        position: absolute;
+        left:0;
+        top:0;
+        bottom:0;
+        width:20rem;
+        height: auto;
+    }
+    @include breakpoint(xlarge) {
+        width: 25rem;
+        padding: 1rem 0 1rem 1rem;
+    }
+    @include breakpoint(xxlarge) {
+        width:28rem;
+        padding: 1.25rem 0 1.25rem 1.25rem;
+    }
+}
+.vcard__mainfig {
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+
+    img {
+
+        height: 100%;
+        width:100%;
+        display: block;
+        object-fit: contain;
+        object-position: center top;
+        transition: all .4s ease-in .2s;
+        .vcard.is-open & {
+            opacity: 0;
+        }
+    }
+}
+
+.vcard__tail {
+    padding: 1rem 1rem;
+    @include breakpoint(large) {
+        margin-left: 20rem;
+    }
+
+    @include breakpoint(xlarge) {
+        margin-left: 25rem;
+    }
+
+    @include breakpoint(xxlarge) {
+        margin-left: 28rem;
+        padding: 1.25rem 1.25rem;
+    }
+}
+.vcard__head {
+    position: relative;
+    margin:0 0 0 0;
+    padding:0 0 .5rem 0;
+}
+
+
+
+.vcard__info {
+    position: absolute;
+    display: inline-block;
+    width:1em;
+    margin-top: .125em;
+    opacity: .75;
+    cursor: help;
+
+
+}
+.vcard__infocontent {
+    font-size: .875rem;
+    padding:1rem;
+    background-color: $cl-primary;
+    border:none;
+    border-right: 1px solid rgba(#000,.125);
+    color:#fff;
+    font-weight: $fw-bold;
+    top:0 !important;
+    left:0 !important;
+    bottom:auto !important;
+    right:auto !important;
+    width:100%;
+
+    @include breakpoint(large) {
+        width: 20rem;
+        bottom: 0 !important
+    }
+
+    @include breakpoint(xlarge) {
+       width: 25rem;
+       padding:1.25rem
+    }
+
+    @include breakpoint(xxlarge) {
+        width: 28rem;
+    }
+
+
+}
+.vcard__maintitle {
+    margin:0 0;
+    text-transform: uppercase;
+    color: $cl-primary;
+    font-size:1.333rem;
+    line-height: 1.2;
+    // border-bottom: 1px solid $cl-gray-light;
+    @include breakpoint(large) {
+        font-size:1.75rem;
+    }
+}
+
+.vcard__addinfowrap {
+    position: relative;
+    border-top:1px solid $cl-gray-light;
+}
+
+
+.vcard__shortdesc {
+    font-weight: $fw-bold;
+    line-height: 1.4;
+    // min-height: 2.4em;
+    font-size: .875rem;
+    margin-top:.333em;
+    > p {
+        line-height: inherit;
+        margin:0; display: inline;
+    }
+}
+
+.vcard__content {
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+
+    padding-top:.333em;
+
+    font-size: .875rem;
+    line-height: 1.4;
+    color:$cl-gray-dark;
+    z-index: -1;
+    overflow: auto;
+
+    background:
+    linear-gradient($cl-body-background 33%, rgba($cl-body-background, 0)),
+    linear-gradient(rgba($cl-body-background, 0), $cl-body-background 66%) 0 100%,
+    radial-gradient(farthest-side at 50% 0, rgba(#000, 0.5), transparent),
+    radial-gradient(farthest-side at 50% 100%, rgba(#000, 0.5), transparent) 0 100%;
+    background-color: $cl-body-background;
+    background-repeat: no-repeat;
+    background-attachment: local, local, scroll, scroll;
+    background-size: 100% 2.5rem, 100% 2.5rem, 100% 1rem, 100% 1rem;
+
+
+    &.is-active {
+        z-index: 1;
+    }
+
+
+}
+
+
+
+.vcard__data {
+
+}
+
+
+.vcard__contenttoggler {
+    // font-weight: $fw-black;
+    // position: absolute;
+    color:$cl-primary;
+    font-size: .9375em;
+    // width: 7em;
+    // text-overflow: ellipsis;
+    white-space: nowrap;
+    // overflow: hidden;
+    // text-transform: uppercase;
+    // line-height: 1;
+    // transform: translateY(.2em);
+    padding: 0 1.4em 0 0;
+    background-image: svg-load('caret-down.svg', fill=$cl-primary);
+    background-repeat: no-repeat;
+    background-size: .875em;
+    background-position: right .25em center;
+    // text-align: center;
+    display: inline-block;
+    // border: 1px solid $cl-gray-xlight;
+    // border-top:none;
+    // text-decoration: underline;
+
+    &:hover, &:focus {
+        outline: 1px dashed $cl-gray-xlight;
+
+        color: darken($cl-primary, 10%);
+        background-image: svg-load('caret-down.svg', fill=darken($cl-primary, 10%));
+    }
+
+    &.is-active {
+        background-image: svg-load('caret-up.svg', fill=$cl-primary);
+        &:hover, &:focus {
+            background-image: svg-load('caret-up.svg', fill=darken($cl-primary, 10%));
+        }
+        position: absolute;
+        bottom:-2em;
+        right: 0;
+        z-index: 2;
+    }
+}
+.vcard__actions {
+    margin-top:1rem;
+    // text-align: center;
+    // display: flex;
+    // justify-content: space-between;
+    .button {
+        margin:0;
+        font-size: .875rem;
+        // width: 100%;
+    }
+}
+
+
+.vcard__tabs-content {
+    border: none;
+
+    .tabs-panel {
+        padding:0 0;
+
+    }
+}
+
+.vcardquote {
+    background-color: #fff;
+    color: $cl-body-font-color;
+    padding: 1rem;
+    max-width: 40rem;
+    margin:2.5% auto;
+    // padding: 1.25rem 1.25rem;
+    @include breakpoint(xlarge) {
+        padding:1.25rem
+    }
+
+}
+
+.vcardcarousel {
+    // background-color: #fff;
+}
