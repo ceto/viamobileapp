@@ -11,12 +11,13 @@ $fw-medium: 500;
 $cl-white: #fefefe;
 $cl-black: #0a0a0a;
 
-$cl-primary: #519eab;
+$cl-primary: #49acca;
 $cl-primary-var: #0bb0ce;
 $cl-primary-light: #71d0e2;
 $cl-primary-var2: #9cc3ca;
 $cl-secondary: #f17a2b;
 $cl-tertiary: #b6c435;
+
 $cl-gray: #57585b;
 $cl-gray-dark: #323232;
 $cl-gray-xdark: #202020;
@@ -37,6 +38,8 @@ $c-blue: #0bafce;
 $c-orange: #f89e1c;
 $c-brown: #c2b59b;
 $c-bronze: #a0887e;
+$c-red: #AB0033;
+$c-lightblue: mix($cl-primary, #fff, 20%);
 
 
 // Layout / Grid

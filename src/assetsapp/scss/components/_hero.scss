@@ -33,6 +33,10 @@ $hcmaxwidth:70em;
         background-color: $c-blue;
     }
 
+    &.colorange {
+        background-color: $c-orange;
+    }
+
 }
 .hero__fig  {
     position: absolute;
@@ -66,6 +70,7 @@ $hcmaxwidth:70em;
     &.floating {
         img {
             position: absolute;
+            object-fit: contain;
             object-position: left bottom;
             width:50%;
             right:0;

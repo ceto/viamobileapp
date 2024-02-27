@@ -1,0 +1,43 @@
+.stepsection {
+    @extend .pagewrap, .short;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem 7.5%;
+    @include breakpoint($bp-large) {
+        flex-direction: row;
+    }
+
+    &.slanted {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        clip-path: polygon(0 0, 100% 6rem, 100% calc(100% - 6rem), 0 100%);
+    }
+}
+
+.stepsection.oswap {
+    @include breakpoint($bp-large) {
+        flex-direction: row-reverse;
+    }
+}
+
+.stepsection__content {
+    width:100%;
+    max-width: 35rem;
+    @include breakpoint($bp-large) {
+        flex-basis: 50%;
+    }
+}
+
+.stepsection__fig {
+    width:100%;
+    max-width: 35rem;
+    @include breakpoint($bp-large) {
+        flex-basis: 50%;
+    }
+    img {
+
+    }
+}

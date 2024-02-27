@@ -155,6 +155,16 @@ p.attribution {
         }
     }
 
+    &.red {
+        background-color: $c-red;
+
+
+        &:hover,
+        &:focus {
+            background-color: darken($c-red, 10%);
+        }
+    }
+
     &.light {
         background-color: $cl-gray-light;
         // color: $cl-body-font-color;

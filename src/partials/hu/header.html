@@ -13,20 +13,9 @@
 <div class="siteheaderwrap" data-magellan>
     <aside class="siteheader">
         <a class="siteheader__brand" href="{{root}}"><img src="{{root}}assetsapp/img/logo.svg" alt="RENT-A-VAN by Viarent"></a>
-        <nav class="siteheader__nav">
-            <ul class="mainmenu show-for-tablet">
-                {{> mainmenu }}
-            </ul>
-            <div class="siteheader__topbar">
-                <nav class="siteheader__topbar__nav">
-                    <ul class="topbarmenu">
-                    </ul>
-                </nav>
-                <div class="siteheader__topbar__actions"> <?php _e('Tel', 'viarent'); ?>: <a href="tel:<?= preg_replace("/[^\+0-9]/", "", get_field('phone', 'option')); ?>"><?php the_field('phone', 'option') ?></a></div>
-            </div>
-        </nav>
-        <a href="{{#unlesspage 'index'}}{{root}}{{lang}}/{{/unlesspage}}#ajanlatkeres" class="siteheader__cta">
-            <span>Ajánlatkérés</span>
+        <nav class="siteheader__nav"></nav>
+        <a href="https://viarent.hu" class="siteheader__cta">
+            <span>Viarent.hu</span>
         </a>
     </aside>
 </div>

@@ -77,6 +77,11 @@
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
+
+    &.tall {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
     &.accent {
         background-color: $cl-primary;
         color: $cl-white;
@@ -113,6 +118,9 @@
     }
     &.light {
         background-color: $cl-gray-light;
+    }
+    &.lightblue {
+        background-color: $c-lightblue;
     }
     &.primaryvar {
         background-color: $cl-primary-var;
