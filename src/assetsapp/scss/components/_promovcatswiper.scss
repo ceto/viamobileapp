@@ -1,0 +1,52 @@
+.promovcatswiper {
+    margin-top: rem-calc($layout-gutter-width*1.5);
+
+    &.slick-dotted.slick-slider {
+        margin-bottom: rem-calc($layout-gutter-width);
+    }
+    .slick-slide {
+        margin: 0 rem-calc($layout-gutter-width/4);
+
+        @include breakpoint($bp-medium) {
+            margin: 0 rem-calc($layout-gutter-width/2);
+        }
+    }
+
+    .slick-list {
+        // overflow: visible;
+        margin: 0 rem-calc(-$layout-gutter-width/4);
+        @include breakpoint($bp-medium) {
+
+            margin: 0 rem-calc(-$layout-gutter-width/2);
+        }
+        @include breakpoint($bp-large) {
+            // overflow: hidden;
+        }
+    }
+
+    .slick-track {
+        // position: relative;
+        // background-color: red;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .slick-dots {
+        position: absolute;
+        bottom: rem-calc(-$layout-gutter-width*2);
+        text-align: left;
+        @include breakpoint($bp-large) {
+            text-align: center;
+        }
+    }
+
+    .promocard__content {
+        min-height: 15rem;
+
+        @include breakpoint($bp-xlarge) {
+            min-height: 15rem;
+        }
+        .promocard__excerpt {
+            display: none;
+        }
+    }
+}

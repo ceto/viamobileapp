@@ -1,0 +1,70 @@
+$global-font-size: 14px;
+$fontsans: 'Rubik', sans-serif;
+$fw-black: 900;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-light: 300;
+$fw-normal: 400;
+$fw-medium: 500;
+
+// Colors
+$cl-white: #fefefe;
+$cl-black: #0a0a0a;
+
+$cl-primary: #519eab;
+$cl-primary-var: #0bb0ce;
+$cl-primary-light: #71d0e2;
+$cl-primary-var2: #9cc3ca;
+$cl-secondary: #f17a2b;
+$cl-tertiary: #b6c435;
+$cl-gray: #57585b;
+$cl-gray-dark: #323232;
+$cl-gray-xdark: #202020;
+$cl-gray-avalanchedark: #251F21;
+$cl-gray-xlight: #f4f2f8;
+$cl-gray-light: #ababab;
+$cl-body-font-color: $cl-gray;
+$cl-body-background: $cl-white;
+
+$cl-bglight: #673ab7;
+$cl-bgdark: #482895;
+
+
+//specicolor
+$c-red: #f37e84;
+$c-green: #b5c334;
+$c-blue: #0bafce;
+$c-orange: #f89e1c;
+$c-brown: #c2b59b;
+$c-bronze: #a0887e;
+
+
+// Layout / Grid
+$layout-col-count: 12;
+$layout-col-width: 72px;
+$layout-gutter-width: 20px;
+$layout-content: ($layout-col-count * $layout-col-width) + (($layout-col-count - 1) * $layout-gutter-width);
+$layout-gutter-pct: percentage($layout-gutter-width / $layout-content);
+
+$global-width: $layout-content;
+
+// Breakpoints
+$bp-medium: 414px;
+$bp-tablet: 768px;
+$bp-large: 1024px;
+$bp-xlarge: 1280px;
+$bp-xxlarge: 1440px;
+$bp-xxxlarge: 1920px;
+
+$bp-bigdesktop: 1560px;
+
+$globalsidebarwidth: 10rem;
+$globalsidebarwidth-small: 8rem;
+$globalheaderheight: 4.25rem;
+$globalheaderheight-tablet: 3.875rem;
+$globalheaderheight-small: 3.5rem;
+$bottombarheight: 3rem;
+$sidestickywidth: 2.5rem;
+
+$paramblockheight: 7.5em;
+

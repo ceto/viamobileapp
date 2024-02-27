@@ -1,0 +1,93 @@
+.testi {
+    margin:0;
+    padding:0;
+    border:none;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5%;
+
+    color:inherit;
+    p {
+        color:inherit;
+    }
+}
+
+.testi__fig {
+    max-width: 12rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 16.666%;
+}
+
+.testi__content {
+
+    align-self: center;
+    // flex-grow: 1;
+    // padding-top:2.5%;
+}
+
+.testi__name {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    margin:0
+}
+.testi__role {
+    font-size: 1.125rem;
+    line-height: 1.2;
+    margin:0 0 .75em;
+}
+.testi__quote {
+    font-size: 1rem;
+    p {
+        line-height: 1.4;
+        margin:0 0 .5em;
+        &:last-child() {
+            margin-bottom:0;
+        }
+    }
+
+}
+
+
+.testiswiper {
+    margin-top: rem-calc($layout-gutter-width*1.5);
+
+
+    &.slick-dotted.slick-slider {
+        margin-bottom: rem-calc($layout-gutter-width*2);
+    }
+
+
+    .slick-dots {
+        bottom: rem-calc(-$layout-gutter-width*2);
+        // text-align: left;
+        // @include breakpoint($bp-large) {
+        //     text-align: center;
+        // }
+
+        li {
+            width:.875rem;
+            button {
+                &:before {
+                    font-size:2.5rem;
+                }
+            }
+        }
+    }
+
+    .slick-prev {
+        left: -5%;
+        @include breakpoint($bp-xxlarge) {
+            left: -10%;
+        }
+    }
+
+    .slick-next {
+        right: -5%;
+        @include breakpoint($bp-xxlarge) {
+            right: -10%;
+        }
+    }
+
+
+}

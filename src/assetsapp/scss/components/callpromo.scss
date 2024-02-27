@@ -1,0 +1,60 @@
+.callpromo {
+    @extend .pagewrap;
+    background-color: darken($c-blue,10%);
+    border-top: 1px solid darken($c-blue,12%);
+    color:$cl-white;
+
+    &.tertiary {
+        background-color: $cl-tertiary;
+        border-top: 1px solid darken($cl-tertiary,12%);
+    }
+
+    
+
+}
+.callpromo__inner {
+    @extend .pagewrap;
+    padding-top:0;
+    padding-bottom:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    gap: 1rem;
+    @include breakpoint($bp-tablet) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 5%;
+
+    }
+    
+    img {
+        width: 6.75rem;
+    }
+
+        
+}
+
+.callpromo__content {
+    // padding: 1rem 0;
+    h3, h4 {
+        text-transform: uppercase;
+        margin:0 0;
+    }
+    h4 {
+        margin-bottom: .5em;
+    }
+    p {
+        font-weight: $fw-bold;
+        font-size: 1.25rem;
+        line-height: 1.4;
+        margin:0;
+    }
+    a {
+        color:$cl-secondary;
+        &:hover, &:focus {
+            text-decoration: underline;
+        }
+    }
+
+}

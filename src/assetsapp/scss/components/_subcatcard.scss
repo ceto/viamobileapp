@@ -1,0 +1,88 @@
+.subcatcard {
+    position: relative;
+    display: block;
+    background-color: $cl-gray-xdark;
+    color: $white;
+    position: relative;
+    padding:3.5% 5% 2rem;
+
+    text-decoration: none;
+    height: 100%;
+    &:hover, &:focus {
+        color: $cl-white;
+        background-color: $cl-primary;
+    }
+
+    &.accent {
+        background-color: $cl-primary;
+        background-color: transparent;
+        // border:1px solid $cl-gray-xdark;
+        // padding:0;
+    }
+}
+
+
+
+.subcatcard__title {
+    margin:0;
+    font-size: .875rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+
+.subcatcard__action  {
+    position: absolute;
+    left:5%;
+    right:5%;
+    bottom:5%;
+    // text-align: right;
+    display: block;
+
+    span {
+        font-size: .875rem;
+        margin:0;
+        display: inline-block;
+        line-height: 1;
+        padding:.25em;
+        background-color: $cl-primary;
+        svg {
+            width:1em;
+            height:.75em;
+            fill: #fff;
+        }
+    }
+}
+
+
+.densegrid {
+
+    list-style: none;
+    margin: 0 0;
+    padding: rem-calc($layout-gutter-width / 2 )  0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    grid-column-gap: rem-calc($layout-gutter-width / 2 );
+    grid-row-gap: rem-calc($layout-gutter-width / 2);
+    grid-auto-rows: 1fr;
+
+
+    @include breakpoint($bp-large) {
+
+        // grid-template-columns: repeat(3, 1fr);
+        padding: rem-calc($layout-gutter-width / 1.5 )  0;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        grid-column-gap: rem-calc($layout-gutter-width / 1.5 );
+        grid-row-gap: rem-calc($layout-gutter-width / 1.5);
+
+    }
+
+    @include breakpoint($bp-xlarge) {
+        // grid-template-columns: repeat(4, 1fr);
+
+    }
+
+    > li {
+    }
+
+}

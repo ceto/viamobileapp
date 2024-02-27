@@ -1,0 +1,97 @@
+
+.howtopromobox {
+    position: relative;
+    text-align: center;
+    background-color: $cl-body-background;
+    padding:10% 10% 25% 10%;
+    .rentavan {
+        color:$cl-primary;
+        font-size: 1rem;
+        @include breakpoint($bp-large) {
+            font-size: 1.25rem;
+        }
+    }
+    h3 {
+        text-transform: uppercase;
+        font-size: 2.333rem;
+        margin:1em 0 .25em;
+        line-height: 1.125;
+        &.secondary {
+            color: $cl-secondary
+        }
+        &.tertiary {
+            color: $cl-tertiary
+        }
+
+        a:hover, a:focus {
+            color:inherit;
+            filter: brightness(0.86);
+        }
+
+        @include breakpoint($bp-large) {
+            font-size: 3rem;
+        }
+
+
+    }
+    p {
+        min-height: 6.5em;
+        @include breakpoint($bp-large) {
+            min-height: 4.5em;
+        }
+    }
+    .button {
+        position: absolute;
+        bottom:10%;
+        left:50%;
+        transform: translateX(-50%);
+    }
+}
+
+.duowrap {
+    position: relative;
+    list-style: none;
+    margin: 0 0;
+    padding: rem-calc($layout-gutter-width / 2 )  0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: rem-calc($layout-gutter-width / 2 );
+    grid-row-gap: rem-calc($layout-gutter-width / 2);
+    grid-auto-rows: 1fr;
+
+
+    @include breakpoint($bp-tablet) {
+        grid-column-gap: rem-calc($layout-gutter-width);
+        grid-row-gap: rem-calc($layout-gutter-width);
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    @include breakpoint($bp-xlarge) {
+        // grid-column-gap: rem-calc($layout-gutter-width * 1.5);
+        // grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    > li {
+    }
+
+    &.kiskepes {
+        padding-bottom: 5rem;
+        &:after {
+            position: absolute;
+            content:'';
+            background-image: url('../img/content/twomenwithboxes.svg');
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            width:30%;
+            max-width: 15rem;
+            height:13rem;
+            left:50%;
+            bottom:0;
+            // background-color: red;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+    }
+}

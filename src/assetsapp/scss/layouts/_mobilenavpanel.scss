@@ -1,0 +1,111 @@
+.mobilenavpanel {
+    background-color: $cl-body-background;
+    color: $cl-body-font-color;
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:-100vw;
+
+    height:100%;
+    width:100vw;
+    border-left: #{$globalsidebarwidth-small} solid $c-blue;
+    padding:.75rem 1rem 1.5rem;
+    z-index: 999;
+    overflow-y: auto;
+    transition: left .4s ease-in .2s;
+    // opacity: 0;
+
+
+    @include breakpoint($bp-tablet) {
+        display: none;
+    }
+
+
+
+}
+
+body.sidebar-is-open .mobilenavpanel {
+}
+
+body.mobilenavpanel-is-open .mobilenavpanel {
+    left:0;
+    // opacity: 1;
+}
+
+
+.mobilenavpanel__brand {
+    // display: flex;
+
+    // height:$globalheaderheight;
+    // align-items: center;
+
+    &:hover, &:focus {
+        img {
+            opacity: 1;
+        }
+    }
+    img {
+        width:50%;
+        max-width: 6rem;
+        margin:0 0 2rem;
+        opacity: .875;
+
+
+    }
+}
+
+
+.mobilenavpanel__promo {
+    height:#{$globalheaderheight-small};
+    max-width:#{$globalsidebarwidth};
+}
+
+.mobilenavpanel__top {
+    // position: absolute;
+    // bottom:0;
+    // left:0;
+    // width:100%;
+    font-size:.875rem;
+    padding:0 0 .75rem;
+    font-weight: $fw-bold;
+    border-bottom:1px solid $cl-gray-xlight;
+    // color:$cl-gray-light;
+    // background-color: $cl-primary;
+
+    svg {
+        width:1.5em;
+        height:1.5em;
+    }
+
+}
+
+
+.mobilenavpanel__close {
+    position: absolute;
+    z-index: 1;
+    font-size: 2rem;
+    text-align: center;
+    bottom:calc(.5rem + 2.5%);
+    left:50%;
+    transform:translateX(-50%);
+    display: inline-block;
+    // border-radius: 50%;
+    border:1px solid rgba(#000,.05);
+    // box-shadow: 0 0 .5rem 0 rgba(#fff,.125);
+    color:$cl-primary;
+    background-color: rgba(#fff,.75);
+    line-height: 1;
+    height:1.125em;
+    width:1.125em;
+
+    @include breakpoint($bp-tablet) {
+        display: none;
+    }
+
+    svg {
+        width:100%;
+        height:100%;
+        padding:33.333%;
+        fill: $cl-primary;
+    }
+}

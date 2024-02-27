@@ -1,0 +1,167 @@
+    // FUNCTIONS
+@function grid-cols-to-px-width($col-count, $gutter-count: $col-count - 1) {
+    $px-width: ($col-count * $layout-col-width) + ($gutter-count * $layout-gutter-width);
+
+    @return $px-width;
+}
+
+// MIXINS
+
+// Grid-width
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+// FOR: Calculating percentage widths based on a column width, context, gutters
+// WHY: Let's you think in terms of grid column-count and context and not do the math
+// USE: @include grid-width(6);
+// NOTE: Uses layout variables as defaults, located in variables.scss.
+
+@mixin grid-width($col-count: 6, $context-col-count: $layout-col-count, $context-gutter-count: $context-col-count - 1, $gutter-count: $col-count - 1, $property: "width", $gallery-gutters: false) {
+    $width: grid-cols-to-px-width($col-count, $gutter-count);
+    $context-width: grid-cols-to-px-width($context-col-count, $context-gutter-count);
+    $percentage-width: percentage($width / $context-width);
+
+    #{$property}: $percentage-width;
+
+    @if $gallery-gutters {
+        $items-per-row: $context-col-count / $col-count;
+
+        &:nth-of-type(n) {
+            @include grid-width($col-count: 0, $gutter-count: 1, $context-col-count: $context-col-count, $property: "margin-right", $gallery-gutters: false);
+        }
+
+        &:nth-child(#{$items-per-row}n),
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+// https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+
+@mixin word-wrap {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+@mixin button {
+    display: inline-block;
+    margin: 0 0 0.4333rem;
+    padding: 0.75em 1.25em 0.666em;
+    color: #fff;
+    background-color: $cl-primary;
+    border-radius: 0.2em;
+    font-family: $fontchivo;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+    font-size: rem-calc(14px, 18px);
+    border: 2px solid transparent;
+
+    &:hover,
+    &:focus {
+        background-color: $cl-primary-variant;
+        color: #fff;
+    }
+
+    &.hollow {
+        background-color: rgba(#fff, 0.5);
+        border-color: $cl-primary;
+        color: $cl-body-font-color;
+
+        &:hover,
+        &:focus {
+            background-color: rgba(#fff, 0.75);
+            border-color: $cl-primary-variant;
+            color: $cl-primary;
+        }
+    }
+
+    &.large {
+        font-size: 1rem;
+    }
+}
+
+@mixin niceul {
+    margin-left:0;
+    line-height: 1.4;
+    margin: 1em 0;
+    padding:0;
+    list-style: none;
+
+    &:first-child() {
+        margin-top:0;
+    }
+
+    > li {
+        padding-left: 1.5em;
+        &:before {
+            // content:'▪';
+            content:'';
+            display: inline-block;
+            background-image: svg-load('check.svg', fill=$cl-tertiary);
+            background-position: center left;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            font-weight: $fw-bold;
+            display: inline-block;
+            width: 1em;
+            height: 1.4em;
+            float: left;
+            margin-right:.5em;
+            margin-left: -1.5em;
+            color:$cl-primary;
+        }
+    }
+
+    li:not(:last-child) {
+        margin-bottom: .5em;
+    }
+
+    &.ingrid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem-calc($layout-gutter-width/2) rem-calc($layout-gutter-width);
+
+        > li {
+            flex-grow: 1;
+            flex-basis: 23em;
+            &:not(:last-child) {
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+}
+
+
+@mixin niceol {
+    margin: 1em 0;
+    padding:0;
+    line-height: 1.4;
+    counter-reset: olcounter;
+
+    > li {
+        counter-increment: olcounter;
+        padding-left: 1.5em;
+        &:before {
+            font-weight: $fw-bold;
+            line-height: 1;
+            display: inline-block;
+            width: 1.5em;
+            float: left;
+            margin-left: -1.5em;
+            transform: translateY(.4125em);
+            color:$cl-secondary;
+            content: counter(olcounter) ". ";
+        }
+    }
+
+    li:not(:last-child) {
+        margin-bottom: .5em;
+    }
+
+}
