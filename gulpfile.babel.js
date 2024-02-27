@@ -78,7 +78,7 @@ function cleanphp(done) {
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 function copy() {
   return gulp.src(PATHS.assets)
-    .pipe(gulp.dest(PATHS.dist + '/assets'));
+    .pipe(gulp.dest(PATHS.dist + '/assetsapp'));
 }
 
 function copydist() {
@@ -118,7 +118,7 @@ function sass() {
   const postCssPlugins = [
     
     inlineSvg({
-        paths: ['src/assets/iconcollection/']
+        paths: ['src/assetsapp/iconcollection/']
     }),
 
     // Autoprefixer
@@ -128,7 +128,7 @@ function sass() {
     // PRODUCTION && uncss.postcssPlugin(UNCSS_OPTIONS),
   ].filter(Boolean);
 
-  return gulp.src('src/assets/scss/app.scss')
+  return gulp.src('src/assetsapp/scss/app.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
@@ -137,7 +137,7 @@ function sass() {
     .pipe($.postcss(postCssPlugins))
     .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/css'))
+    .pipe(gulp.dest(PATHS.dist + '/assetsapp/css'))
     .pipe(browser.reload({ stream: true }));
 }
 
@@ -171,17 +171,17 @@ function javascript() {
       .on('error', e => { console.log(e); })
     ))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+    .pipe(gulp.dest(PATHS.dist + '/assetsapp/js'));
 }
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function images() {
-  return gulp.src('src/assets/img/**/*')
+  return gulp.src('src/assetsapp/img/**/*')
     .pipe($.if(PRODUCTION, $.imagemin([
       $.imagemin.jpegtran({ progressive: true }),
     ])))
-    .pipe(gulp.dest(PATHS.dist + '/assets/img'));
+    .pipe(gulp.dest(PATHS.dist + '/assetsapp/img'));
 }
 
 // Start a server with BrowserSync to preview the site in
@@ -199,7 +199,7 @@ function reload(done) {
 
 // ### SVG icons inject
 function svgicons() {
-    var svgs = gulp.src('src/assets/iconcollection/*.svg')
+    var svgs = gulp.src('src/assetsapp/iconcollection/*.svg')
         .pipe(rename({ prefix: 'icon-' }))
         .pipe(svgmin())
         .pipe(svgstore({ inlineSvg: true }));
@@ -217,12 +217,12 @@ function svgicons() {
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
-  gulp.watch('src/assets/iconcollection/*.svg').on('all', gulp.series(svgicons, browser.reload));
+  gulp.watch('src/assetsapp/iconcollection/*.svg').on('all', gulp.series(svgicons, browser.reload));
   gulp.watch('src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
   gulp.watch('src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('src/data/**/*.{js,json,yml}').on('all', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('src/helpers/**/*.js').on('all', gulp.series(resetPages, pages, browser.reload));
-  gulp.watch('src/assets/scss/**/*.scss').on('all', sass);
-  gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
-  gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
+  gulp.watch('src/assetsapp/scss/**/*.scss').on('all', sass);
+  gulp.watch('src/assetsapp/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
+  gulp.watch('src/assetsapp/img/**/*').on('all', gulp.series(images, browser.reload));
 }
