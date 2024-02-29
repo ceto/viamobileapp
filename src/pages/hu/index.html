@@ -9,13 +9,14 @@ lang: hu
                 <img src="{{root}}assetsapp/img/content/theman.png" alt="">
             </figure>
             <div class="hero__content" data-magellan>
+                    <h4>Az ország számos nagyvárosában</h4>
                     <h3>Bérelj furgont a Viarent mobil applikációval!</h3>
                     <ul>
-                        <li>Android és IOS eszközökre</li>
-                        <li>Gyors regisztráció</li>
+                        <li>Budaörs, Budapest, Debrecen, Győr, Pécs, Szeged, Szigetszentmiklós</li>
+                        <li>Android és IOS eszközökön is elérhető</li>
                         <li>Bankkártyás fizetés az appban</li>
                     </ul>
-                <p><a class="button red" href="#howto">Hogyan használd?</a></p>
+                <p><a class="button red" href="#steps">Hogyan használd?</a></p>
             </div>
         </section>
     </div>
@@ -61,16 +62,66 @@ lang: hu
             <img src="{{root}}assetsapp/img/content/step3.svg" alt="">
         </figure>
     </section>
-</div>
 
 
-<section class="callpromo">
-    <div class="callpromo__inner">
-        <img src="{{root}}assetsapp/img/content/callcenter.svg" alt="">
-        <div class="callpromo__content">
-            <h3>Segítünk a megfelelő jármű kiválasztásában.</h3>
-            <h4>Munkaidőben hívd bérleti tanácsadónkat!</h4>
-            <p>Telefonszámunk: <a href="tel:<?= preg_replace("/[^\+0-9]/", "", get_field('phone', 'option')); ?>"><?php the_field('phone', 'option') ?></a></p>
+    <section class="stepsection oswap">
+        <div class="stepsection__content">
+            <h3>Vedd át az autót, és fotózd le!</h3>
+            <p><strong>Kezd a furgon fotózását négy külső képpel, hogy részletesen dokumentáld a jármű külső állapotát minden szögből. Ezután kinyílik a bal első ajtó,
+                és elkészítheted a fotót a belső részről és a rakodótérről, hogy teljes képet kapjunk a furgon állapotáról mind
+                a külső, mind a belső szempontból.</strong></p>
+            <p>Ha a kapott járművön sérülést találsz, azt megjegyzésként írásos formában a kép mellett dokumentáld, így elkerülheted, hogy leadáskor rád terheljük annak javítási költségét.</p>
         </div>
-    </div>
-</section>
+        <figure class="stepsection__fig">
+            <img src="{{root}}assetsapp/img/content/step4.svg" alt="">
+        </figure>
+    </section>
+
+    <section class="stepsection lightblue slanted">
+        <div class="stepsection__content">
+            <h3>Indulhatsz!</h3>
+            <p><strong>Most már készen áll a jármű a használatra. Kérjük, ügyelj a biztonságra, tartsd be az összes közlekedési szabályt, és élvezd az utazást!</strong></p>
+            <ul>
+                <li>A járművet teli tankkal adjuk bérbe és így is kérjük vissza.*</li>
+                <li>A járművek D2-es kategóriájú a felvétel helyével megegyező Vármegye matricával rendelkeznek.</li>
+                <li>Kérlek a használat során ügyelj a tisztaságára!</li>
+                <li>A járművekben TILOS a dohányzás!</li>
+            </ul>
+        </div>
+        <figure class="stepsection__fig">
+            <img src="{{root}}assetsapp/img/content/step5.svg" alt="">
+        </figure>
+    </section>
+
+    <section class="stepsection oswap">
+        <div class="stepsection__content">
+            <h3>Jármű leadása</h3>
+            <p><strong>Kérjük, hogy a bérlés végén hozd vissza a járművet ugyanarra a telephelyre, ahol átvetted.</strong></p>
+            <p>Kérjük, hogy leadás előtt győződj meg arról, hogy a jármű tisztasága az átvételkori állapottal megegyező. Ha állagváltozás történne a tisztaságot illetően, akkor kérjük, hogy takarítsd ki/mosd le a járművet, mert ha a tisztaság mértéke nem megfelelő, akkor plusz költséget számítunk fel.</p>
+        </div>
+        <figure class="stepsection__fig">
+            <img src="{{root}}assetsapp/img/content/step6.svg" alt="">
+        </figure>
+    </section>
+
+    <section class="stepsection lightblue slanted">
+        <div class="stepsection__content">
+            <h3>Fotózás és lezárás</h3>
+            <p><strong>A bérlés zökkenőmentes lezárásához kérjük, kövesd az alábbi egyszerű lépéseket:</strong></p>
+            <ul>
+                <li>Biztonságosan parkolj le a kijelölt területen!</li>
+                <li>Nyomd meg az applikációban a “Foglalás lezárása” gombot!</li>
+                <li>Ellenőrizd, hogy nem maradt-e személyes tárgy a járműben.</li>
+                <li>Győződj meg róla, hogy az üzemanyag tartály tele legyen!*</li>
+                <li>Helyezd vissza a kulcsot a megadott helyre!</li>
+                <li>Az applikációban készíts fotókat a jármű külső részéről (4 irányból), az utastérről és a raktértérről és tölsd fel azokat!</li>
+            </ul>
+            <p><strong>A bérlés automatikusan lezárul.</strong></p>
+            <p><small>*Az üzemanyagszintet és a túlfutást ellenőrizzük és eltérés esetén annak összege terhelésre kerül az ÁBF alapján.</small></p>
+        </div>
+        <figure class="stepsection__fig">
+            <img src="{{root}}assetsapp/img/content/step7.svg" alt="">
+        </figure>
+    </section>
+
+</div>

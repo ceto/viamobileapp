@@ -101,7 +101,7 @@
             // content:'▪';
             content:'';
             display: inline-block;
-            background-image: svg-load('check.svg', fill=$cl-tertiary);
+            background-image: svg-load('check.svg', fill=$c-red);
             background-position: center left;
             background-repeat: no-repeat;
             background-size: contain;

@@ -1,3 +1,6 @@
+#steps {
+    counter-reset: stepscounter;
+}
 .stepsection {
     @extend .pagewrap, .short;
     display: flex;
@@ -5,7 +8,9 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-around;
-    gap: 2rem 7.5%;
+    gap: 2rem 10%;
+    counter-increment: stepscounter;
+
     @include breakpoint($bp-large) {
         flex-direction: row;
     }
@@ -26,9 +31,48 @@
 .stepsection__content {
     width:100%;
     max-width: 35rem;
+    
+
     @include breakpoint($bp-large) {
         flex-basis: 50%;
     }
+
+    h3 {
+        text-transform: uppercase;
+        display: flex;
+        gap:.5em;
+        font-size: 1.5rem;
+        align-items: center;
+        margin:0 0 .25em;
+        
+        &:before {
+            align-self: flex-start;
+            content: counter(stepscounter);
+            text-indent: 0;
+            display: block;
+            font-size: 1em;
+            color:$c-red;
+            min-width:1.5em;
+            width: 1.5em;
+            height: 1.5em;
+            line-height: 1.466em;
+            border-radius: 50%;
+            text-align: center;
+            border:1px solid currentColor;
+            font-weight: $fw-black;
+            font-feature-settings: "lnum" 1;    
+        }
+
+        @include breakpoint($bp-xlarge) {
+            margin-left: -2em;
+            font-size: 1.75em;
+        }
+    }
+    ul {
+        @include niceul;
+    }
+
+
 }
 
 .stepsection__fig {
