@@ -163,8 +163,8 @@ $hcmaxwidth:70em;
         }
     }
 
-    ul {
-        @include niceul;
+    ul.niceul {
+        // @include niceul;
         max-width: 29em;
         font-size:1.125em;
         font-weight: $fw-semibold;

@@ -1,0 +1,9 @@
+.dlbadges {
+    max-width: 15rem;
+    list-style: none;
+    display: flex;
+    gap:.5rem .75rem;
+    img {
+        min-height: 3.5rem;
+    }
+}
