@@ -1,4 +1,4 @@
-$hcmaxwidth:70em;
+$hcmaxwidth:52em;
 .hero {
     position: relative;
     z-index: 0;
@@ -36,6 +36,10 @@ $hcmaxwidth:70em;
     &.colorange {
         background-color: $c-orange;
     }
+    &.gradorange {
+        background-color: $c-orange;
+        background-image: radial-gradient(circle at 75%, lighten($c-orange, 5%) 15%, $c-orange 50%);
+    }
 
 }
 .hero__fig  {
@@ -43,12 +47,12 @@ $hcmaxwidth:70em;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 66vw;
+    height: 100%;
     mask-image: linear-gradient(0deg, rgba(#000,0) 0, rgba(#000,.5) 33.333%, rgba(#000,1) 66.666%);
     background-size: 100% 100%;
     background-position: center bottom;
     background-repeat: no-repeat;
-    z-index: -1;
+    // z-index: -1;
     margin:0;
     padding:0;
 
@@ -95,15 +99,46 @@ $hcmaxwidth:70em;
     }
 }
 
+.hero__fig__action {
+    display: block;
+    position: absolute;
+    top:42%;
+    right: 0;
+    width:50%;
+    height:16%; 
+    text-align: center;
+    color: rgba(#fff,.9);
+    z-index: 9999;
+    display: none;
+
+    @include breakpoint($bp-tablet) {
+        display: block;
+    }
+
+    svg {
+        height: 100%;
+        width:100%;
+        fill: currentColor;
+        filter: drop-shadow(0 0 1rem rgba(#000,.5));
+    }
+
+    &:hover, &:focus {
+       transform: scale(1.125);
+       color:#fff;
+    }
+}
+
 .hero__content {
     @extend .pagewrap;
+    padding-top:2rem;
     max-width: $hcmaxwidth;
     margin-left: 0;
     text-shadow: 0 0 1.5rem rgba(#000,.333);
-    padding-top:25%;
+    // padding-top:25%;
     font-size:.875rem;
 
     @include breakpoint($bp-tablet) {
+        padding-top:4rem;
         position: absolute;
         left:0;
         bottom:25%;
@@ -143,8 +178,9 @@ $hcmaxwidth:70em;
         font-weight: $fw-black;
 
         text-transform: uppercase;
+        text-wrap: balance;
         span {
-            color: $cl-secondary;
+            color: $c-red;
             text-shadow: 0 0 .25rem rgba(#000,.5);
         }
     }
@@ -183,6 +219,31 @@ $hcmaxwidth:70em;
         text-shadow: 0 0 1.5rem rgba(#000,.5);
     }
 
+}
+
+.hero__content__videoaction {
+    display: block;
+    width:4rem;
+    height:4rem; 
+    text-align: center;
+    color: rgba(#fff,.9);
+    margin-bottom: .5rem;
+
+    @include breakpoint($bp-tablet) {
+        display: none;
+    }
+
+    svg {
+        height: 100%;
+        width:100%;
+        fill: currentColor;
+        filter: drop-shadow(0 0 1rem rgba(#000,.5));
+    }
+
+    &:hover, &:focus {
+       transform: scale(1.125);
+       color:#fff;
+    }
 }
 
 

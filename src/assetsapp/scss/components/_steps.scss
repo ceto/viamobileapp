@@ -10,19 +10,36 @@
     justify-content: space-around;
     gap: 2rem 10%;
     counter-increment: stepscounter;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    margin-top:-6rem;
+    clip-path: polygon(0 6rem, 100% 0, 100% 100%, 0 calc(100% - 6rem));
 
     @include breakpoint($bp-large) {
         flex-direction: row;
     }
 
-
-}
-
-.stepsection.oswap {
-    @include breakpoint($bp-large) {
-        flex-direction: row-reverse;
+    &:nth-child(2n+1) {
+        clip-path: polygon(0 0, 100% 6rem, 100% calc(100% - 6rem), 0 100%);
+        // background-color: white;
     }
+
+    &:nth-child(2n) {
+        background-color: $c-lightblue;
+
+        @include breakpoint($bp-large) {
+            flex-direction: row-reverse;
+        }
+    }
+
+
 }
+
+// .stepsection.oswap {
+//     @include breakpoint($bp-large) {
+//         flex-direction: row-reverse;
+//     }
+// }
 
 .stepsection__content {
     width:100%;

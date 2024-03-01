@@ -27,6 +27,7 @@
     @include breakpoint($bp-large) {
         flex-direction: row;
     }
+    font-size: .875rem;
     
      
 }
@@ -47,8 +48,8 @@
     position: absolute;
     bottom:0;
     right:0;
-    width: Min(66vw, 22rem);
-    height: Min(66vw, 22rem);
+    width: Min(50vw, 22rem);
+    height: Min(50vw, 22rem);
     img {
         object-fit: contain;
         object-position: right bottom;

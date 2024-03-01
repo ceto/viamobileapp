@@ -4,11 +4,13 @@ lang: hu
 ---
 <div class="heroslider">
     <div>
-        <section class="hero colorange">
+        <section class="hero gradorange">
             <figure class="hero__fig floating nomask">
                 <img src="{{root}}assetsapp/img/content/theman.png" alt="">
+                <a href="https://www.youtube.com/watch?v=stU9z7JbjDk" class="hero__fig__action js-startvideo">{{svginsert "play-video"}}</a>
             </figure>
             <div class="hero__content" data-magellan>
+                <a href="https://www.youtube.com/watch?v=stU9z7JbjDk" class="hero__content__videoaction js-startvideo">{{svginsert "play-video"}}</a>
                 <h4>Az ország számos nagyvárosában</h4>
                 <h3>Bérelj furgont a Viarent mobil applikációval!</h3>
                 <ul class="niceul">
@@ -17,17 +19,22 @@ lang: hu
                     <li>Bankkártyás fizetés az appban</li>
                 </ul>
                 <br>
-                <ul class="dlbadges">
-                    <li><a href=""><img src="{{root}}assetsapp/img/content/play_store_en.svg" alt=""></a></li>
-                    <li><a href=""><img src="{{root}}assetsapp/img/content/app_store_en.svg" alt=""></a></li>
+                <ul class="dlbadges large">
+                    <li><a href="https://play.google.com/store/apps/details?id=hu.viarent.smartrent"><img src="{{root}}assetsapp/img/content/play_store_en.svg" alt=""></a></li>
+                    <li><a href="https://apps.apple.com/hu/app/viarent/id1635732729"><img src="{{root}}assetsapp/img/content/app_store_en.svg" alt=""></a></li>
                 </ul>
                 <!-- <p><small><a class="" href="#steps">Hogyan használd?</a></small></p> -->
             </div>
         </section>
     </div>
 </div>
+<div class="pagewrap nobottom">
+    <h3 class="sectitle text-center">Hogyan használd&hellip;</h3>
+    <p class="text-center" style="font-size: 1.333rem;"><strong>Útmutató az alkalmazás használatához</strong></p>
+</div>
+<br><br>
 <div class="steps" id="steps" data-magellan-target="steps">
-    <section class="stepsection lightblue slanted">
+    <section class="stepsection">
         <div class="stepsection__content">
             <h3>Regisztrálj</h3>
             <p><strong>Csatlakozz hozzánk és regisztrálj! Kérjük, add meg az alapvető információidat, hogy teljeskörű hozzáférésed legyen szolgáltatásunkhoz.</strong></p>
@@ -41,7 +48,7 @@ lang: hu
         </figure>
     </section>
 
-    <section class="stepsection oswap">
+    <section class="stepsection">
         <div class="stepsection__content">
             <h3>Válaszd ki a megfelelő telephelyet</h3>
             <p><strong>Legyen számodra kényelmes a furgonbérlés! Válaszd ki a hozzád legközelebb lévő telephelyet a gyors szolgáltatás érdekében!</strong></p>
@@ -52,7 +59,7 @@ lang: hu
         </figure>
     </section>
 
-    <section class="stepsection lightblue slanted">
+    <section class="stepsection">
         <div class="stepsection__content">
             <h3>Válassz egy elérhető járművet, és add meg a bérleti időszakot</h3>
             <p><strong>Több különböző járműtípus közül is választhatsz a telephelyen aktuálisan elérhető kínálatból.</strong></p>
@@ -69,7 +76,7 @@ lang: hu
     </section>
 
 
-    <section class="stepsection oswap">
+    <section class="stepsection">
         <div class="stepsection__content">
             <h3>Vedd át az autót, és fotózd le!</h3>
             <p><strong>Kezd a furgon fotózását négy külső képpel, hogy részletesen dokumentáld a jármű külső állapotát minden szögből. Ezután kinyílik a bal első ajtó,
@@ -82,7 +89,7 @@ lang: hu
         </figure>
     </section>
 
-    <section class="stepsection lightblue slanted">
+    <section class="stepsection">
         <div class="stepsection__content">
             <h3>Indulhatsz!</h3>
             <p><strong>Most már készen áll a jármű a használatra. Kérjük, ügyelj a biztonságra, tartsd be az összes közlekedési szabályt, és élvezd az utazást!</strong></p>
@@ -98,7 +105,7 @@ lang: hu
         </figure>
     </section>
 
-    <section class="stepsection oswap">
+    <section class="stepsection">
         <div class="stepsection__content">
             <h3>Jármű leadása</h3>
             <p><strong>Kérjük, hogy a bérlés végén hozd vissza a járművet ugyanarra a telephelyre, ahol átvetted.</strong></p>
@@ -109,7 +116,7 @@ lang: hu
         </figure>
     </section>
 
-    <section class="stepsection lightblue slanted">
+    <section class="stepsection">
         <div class="stepsection__content">
             <h3>Fotózás és lezárás</h3>
             <p><strong>A bérlés zökkenőmentes lezárásához kérjük, kövesd az alábbi egyszerű lépéseket:</strong></p>
