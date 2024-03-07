@@ -1,4 +1,4 @@
-$hcmaxwidth:52em;
+$hcmaxwidth:Max(56%, 52em);
 .hero {
     position: relative;
     z-index: 0;
@@ -136,10 +136,11 @@ $hcmaxwidth:52em;
     padding-top:2rem;
     max-width: $hcmaxwidth;
     margin-left: 0;
-    text-shadow: 0 0 1.5rem rgba(#000,.333);
+    text-shadow: 0 0 1.5rem rgba(#000,.25);
     // padding-top:25%;
     font-size:.875rem;
 
+  
     @include breakpoint($bp-tablet) {
         padding-top:4rem;
         position: absolute;
@@ -157,6 +158,7 @@ $hcmaxwidth:52em;
         transform: translateY(50%);
 
         font-size:.9375rem;
+        padding-right: 0;
     }
     @include breakpoint($bp-xlarge) {
         font-size:1rem;
@@ -164,10 +166,7 @@ $hcmaxwidth:52em;
         // width:75%
 
     }
-    @include breakpoint($bp-xxlarge) {
-        font-size:1rem;
 
-    }
 
     // @include breakpoint(95em) {
     //     padding-left: 7.5%;
