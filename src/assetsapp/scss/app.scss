@@ -105,7 +105,9 @@ $global-flexbox: true;
 @import 'components/story';
 @import 'components/steps';
 @import 'components/appfooter';
-@import 'components/_dlbadges.scss';
+@import 'components/dlbadges';
+@import "components/grtyoutube";
+
 
 @import 'node_modules/slick-carousel/slick/slick.scss';
 @import "components/slick-theme";

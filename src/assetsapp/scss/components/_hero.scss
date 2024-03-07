@@ -80,12 +80,15 @@ $hcmaxwidth:52em;
             right:0;
         }
     }
+    
 
     &.floatingwider {
         img {
             position: absolute;
-            object-position: left bottom;
-            width:75%;
+            object-position: left center;
+            object-fit: contain;
+            width:50%;
+            height: 100%;
             right:0;
         }
     }
