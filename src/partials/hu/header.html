@@ -1,15 +1,23 @@
 <div class="sitemheaderwrap" data-magellan>
     <aside class="sitemheader">
-        <a class="sitemheader__brand" href="{{root}}"><img src="{{root}}assetsapp/img/logo.svg" alt="RENT-A-VAN by Viarent"></a>
-        <a href="https://viarent.hu" class="sitemheader__cta">
+        <a class="sitemheader__brand" href="{{root}}"><img src="{{root}}assetsapp/img/logo.svg" alt="Viarent - Mobil Applikáció"></a>
+        <!-- <a href="https://viarent.hu" class="sitemheader__cta">
             <span>Viarent.hu</span>
-        </a>
+        </a> -->
+        <button class="js-allopen sitemheader__toggler">
+            {{ svginsert "burger" }}
+            <span>Menü</span>
+        </button>
     </aside>
 </div>
 <div class="siteheaderwrap" data-magellan>
     <aside class="siteheader">
-        <a class="siteheader__brand" href="{{root}}"><img src="{{root}}assetsapp/img/logo.svg" alt="RENT-A-VAN by Viarent"></a>
-        <nav class="siteheader__nav"></nav>
+        <a class="siteheader__brand" href="{{root}}"><img src="{{root}}assetsapp/img/logo.svg" alt="Viarent - Mobil Applikáció"></a>
+        <nav class="siteheader__nav">
+            <ul class="mainmenu show-for-tablet">
+                {{> mainmenu }}
+            </ul>
+        </nav>
         <a href="https://viarent.hu" class="siteheader__cta">
             <span>Viarent.hu</span>
         </a>
