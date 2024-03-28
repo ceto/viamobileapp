@@ -28,6 +28,12 @@
         flex-direction: row;
     }
     font-size: .875rem;
+
+    a {
+        &:hover, &:focus {
+            color: $c-red;
+        }
+    }
     
      
 }
