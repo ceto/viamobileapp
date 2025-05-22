@@ -187,7 +187,7 @@
         grid-column-end: span 1;
         cursor: default;
         &:hover {
-            background-color: $cl-gray-xlight;
+            background-color: $cl-primary-var2;
             color: initial;
         }
     }
@@ -208,10 +208,6 @@
     &:hover {
         background-color: $cl-secondary;
         color: #fff;
-        &:after {
-            display: block;
-        }
-        
     }
 
 
