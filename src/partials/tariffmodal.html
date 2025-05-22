@@ -1,0 +1,42 @@
+<?php
+    $the_tariffs = new WP_Query(array(
+        'post_type' => 'tariff',
+        'posts_per_page' => -1,
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'post_status' => array('publish' ),
+        'meta_query' => array(
+                'key'     => 'show_inapptariffs',
+                'value'   => 1,
+                'compare' => '==',
+        );
+    ))
+?>
+<div class="reveal" id="tariffmodal" data-reveal>
+    <div class="prtbl forapp">
+        <div class="prtbl__rowhead topheader">
+            <?= __('Rövid távú bérleti tarifatáblázat', 'viarent'); ?>
+        </div>
+        <div class="prtbl__price topheader merged">
+            <p><?= __('Bérleti díj (HUF)<small>Bérleti díjak nem tartalmazzák az ÁFÁ-t.<br>Napi limit: 100 km. Túlfutási díj: 40 Ft+ÁFA/km.<br>A járművek kizárólag belföldi használatra vehetők igénybe</small>', 'viarent'); ?></p>
+        </div>
+        <div class="prtbl__price topheader"><?= __('4 óra', 'viarent'); ?></div>
+        <div class="prtbl__price topheader"><?= __('8 óra', 'viarent'); ?></div>
+        <div class="prtbl__price topheader"><?= __('1-30 nap', 'viarent'); ?></div>
+        <?php while ($the_tariffs->have_posts()) : $the_tariffs->the_post();?>
+            <?php setup_postdata( $post ); ?>
+            <div class="prtbl__rowhead">
+                <?= svginsert(get_field('icon')); ?>
+                <h3><?php the_title(); ?></h3>
+                <?php the_content(); ?>
+            </div>
+            <div class="prtbl__price" data-target="r_vehicle0|r_time1" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('4 óra', 'viarent'); ?></span><?= get_field('apprate-0') ?></div>
+            <div class="prtbl__price" data-target="r_vehicle0|r_time2" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('8 óra', 'viarent'); ?></span><?= get_field('apprate-1') ?></div>
+            <div class="prtbl__price" data-target="r_vehicle0|r_time3" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('1-30 nap', 'viarent'); ?></span><?= get_field('apprate-2') ?></div>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+    </div>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
