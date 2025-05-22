@@ -16,6 +16,13 @@
         line-height: 1.4;
     }
 
+    &.forapp {
+        grid-template-columns:1fr 1fr 1fr;
+        @include breakpoint($bp-large) {
+            grid-template-columns: 4fr 1fr 1fr 1fr;
+        }
+    }
+
 
 
 }
@@ -36,6 +43,15 @@
     color: $cl-primary-var;
 
     justify-content: center;
+
+    .prtbl.forapp & {
+        grid-column: 1 / span 3;
+        @include breakpoint($bp-large) {
+            grid-column: 1 / span 1;
+        }
+    }
+
+
     &:after {
         content:'';
         position: absolute;
@@ -167,6 +183,15 @@
         grid-column-end: span 1;
     }
 
+    .prtbl.forapp & {
+        grid-column-end: span 1;
+        cursor: default;
+        &:hover {
+            background-color: $cl-gray-xlight;
+            color: initial;
+        }
+    }
+
     &:after {
         content: attr(data-action);
         position: absolute;
@@ -200,6 +225,12 @@
         font-size: .9375em;
         padding:.75em .25em;
 
+        .prtbl.forapp &:hover {
+            background-color: $cl-tertiary;
+            color: $cl-white;
+
+        }
+
 
         &.merged {
             background-color: $cl-primary-var;
@@ -221,6 +252,13 @@
         display: block;
         @include breakpoint($bp-large) {
             grid-column: 2 / span 6;
+        }
+        
+        .prtbl.forapp & {
+            grid-column: 1 / span 3;
+            @include breakpoint($bp-large) {
+                grid-column: 2 / span 3;
+            }
         }
     }
     small {
