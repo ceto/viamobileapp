@@ -239,6 +239,7 @@
         // font-style: italic;
         font-size: .9375em;
         padding:.75em .25em;
+        text-wrap: auto;
 
         .prtbl.forapp &:hover {
             background-color: $cl-tertiary;
