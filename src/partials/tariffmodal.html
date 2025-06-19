@@ -20,15 +20,11 @@
             <?= __('Rövid távú bérleti tarifatáblázat', 'viarent'); ?>
         </div>
         <div class="prtbl__price topheader merged">
-            <?php if (in_array(viarent_countrycode(), array('HU'))) : ?>
-                <p><?= __('Bérleti díj (HUF)<small>Bérleti díjak nem tartalmazzák az ÁFÁ-t • Napi limit: 100&nbsp;km • Túlfutási díj: 40&nbsp;Ft&nbsp;+&nbsp;ÁFA/km • Járműveink magyar, országos autópálya-matricával rendelkeznek • Járműveink Magyarországon, Szlovákiában és Ausztriában használhatók • Nincsenek rejtett költségek • Az applikációval maximum 30 napig bérelhetők járműveink.</small>', 'viarent'); ?></p>
-            <?php else : ?>
-                <p><?= __('Bérleti díj (HUF)<small>Bérleti díjak nem tartalmazzák az ÁFÁ-t.<br>Napi limit: 100 km. Túlfutási díj: 40 Ft+ÁFA/km.<br>A járművek kizárólag belföldi használatra vehetők igénybe</small>', 'viarent'); ?></p>
-            <?php endif; ?>
+            <p><?= __('Bérleti díj (HUF)<small>Bérleti díjak nem tartalmazzák az ÁFÁ-t.<br>Napi limit: 100 km. Túlfutási díj: 40 Ft+ÁFA/km.</small>', 'viarent'); ?></p>
         </div>
         <div class="prtbl__price topheader"><?= __('4 óra', 'viarent'); ?></div>
         <div class="prtbl__price topheader"><?= __('8 óra', 'viarent'); ?></div>
-        <div class="prtbl__price topheader"><?= __('24 óra', 'viarent'); ?></div>
+        <div class="prtbl__price topheader"><?= __('napidíj', 'viarent'); ?></div>
         <?php while ($the_tariffs->have_posts()) : $the_tariffs->the_post();?>
             <?php setup_postdata( $post ); ?>
             <div class="prtbl__rowhead">
@@ -38,9 +34,14 @@
             </div>
             <div class="prtbl__price" data-target="r_vehicle0|r_time1" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('4 óra', 'viarent'); ?></span><?= get_field('apprate-0') ?></div>
             <div class="prtbl__price" data-target="r_vehicle0|r_time2" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('8 óra', 'viarent'); ?></span><?= get_field('apprate-1') ?></div>
-            <div class="prtbl__price" data-target="r_vehicle0|r_time3" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('24 óra', 'viarent'); ?></span><?= get_field('apprate-2') ?></div>
+            <div class="prtbl__price" data-target="r_vehicle0|r_time3" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('napidíj', 'viarent'); ?></span><?= get_field('apprate-2') ?></div>
         <?php endwhile; ?>
         <?php wp_reset_postdata(); ?>
+        <?php if ($prtblappdiscl = get_field('pricetable-mobileapp-disclaimer', 'option')) : ?>
+        <div class="prtbl__rowfoot">
+            <?php echo $prtblappdiscl; ?>
+        </div>
+        <?php endif; ?>
     </div>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
