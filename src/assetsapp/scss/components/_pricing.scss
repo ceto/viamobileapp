@@ -164,7 +164,7 @@
 
 .prtbl__rowfoot {
     padding:.5em 0;
-    font-size: 87.5%;
+    font-size: .875em;
     grid-column: 1 / span 6;
 
     @include breakpoint($bp-large) {
