@@ -23,6 +23,13 @@
         }
     }
 
+    &.forapp-fivecol {
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+        @include breakpoint($bp-large) {
+            grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+
 
 
 }
@@ -46,6 +53,13 @@
 
     .prtbl.forapp & {
         grid-column: 1 / span 3;
+        @include breakpoint($bp-large) {
+            grid-column: 1 / span 1;
+        }
+    }
+
+    .prtbl.forapp-fivecol & {
+        grid-column: 1 / span 5;
         @include breakpoint($bp-large) {
             grid-column: 1 / span 1;
         }
@@ -179,6 +193,13 @@
             grid-column: 1 / span 4;
         }
     }
+
+    .prtbl.forapp-fivecol & {
+        grid-column: 1 / span 5;
+        @include breakpoint($bp-large) {
+            grid-column: 1 / span 6;
+        }
+    }
 }
 
 .prtbl__price {
@@ -203,6 +224,15 @@
     }
 
     .prtbl.forapp & {
+        grid-column-end: span 1;
+        cursor: default;
+        &:hover {
+            background-color: $cl-primary-var2;
+            color: initial;
+        }
+    }
+
+    .prtbl.forapp-fivecol & {
         grid-column-end: span 1;
         cursor: default;
         &:hover {
@@ -241,7 +271,7 @@
         padding:.75em .25em;
         text-wrap: auto;
 
-        .prtbl.forapp &:hover {
+        .prtbl.forapp &:hover, .prtbl.forapp-fivecol &:hover {
             background-color: $cl-tertiary;
             color: $cl-white;
 
@@ -276,6 +306,14 @@
                 grid-column: 2 / span 3;
             }
         }
+        
+        .prtbl.forapp-fivecol & {
+            grid-column: 1 / span 5;
+            @include breakpoint($bp-large) {
+                grid-column: 2 / span 5;
+            }
+        }
+
     }
     small {
         display: block;
