@@ -490,3 +490,10 @@ svg.icon {
     transform: rotate(90deg) scaleX(1.333) translateX(-.05666em) translateY(-.025em);
     display: inline-block;
 }
+
+
+.promopanel {
+    padding: 2.5rem 5% 1.5rem 5%; 
+    background-color: $cl-gray-xlight; 
+    border-radius: .25em;
+}
