@@ -296,18 +296,18 @@ $('a.prtbl__price').on('click', function(e) {
 
 $(".js-startvideo").grtyoutube();
 
-// Open Promo modal on page load (if present)
-$(window).on('load', function() {
-    var $promo = $('#promomodal');
-    if ($promo.length) {
-        try {
-            // If Foundation auto-init ran with data-reveal, this will work:
-            $promo.foundation('open');
-        } catch (e) {
-            // Fallback: manually instantiate and open the Reveal
-            var modal = new Foundation.Reveal($promo);
-            modal.open();
-        }
-    }
-});
+// // Open Promo modal on page load (if present)
+// $(window).on('load', function() {
+//     var $promo = $('#promomodal');
+//     if ($promo.length) {
+//         try {
+//             // If Foundation auto-init ran with data-reveal, this will work:
+//             $promo.foundation('open');
+//         } catch (e) {
+//             // Fallback: manually instantiate and open the Reveal
+//             var modal = new Foundation.Reveal($promo);
+//             modal.open();
+//         }
+//     }
+// });
 
